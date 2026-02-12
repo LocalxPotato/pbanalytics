@@ -1,0 +1,98 @@
+//all public basic styles and variables
+
+body,p {
+    margin: 0;
+}
+body {
+    background-color: var(--white);
+
+}
+:root{
+    --black: #1e1e1e;
+    --white: #FFFFFF;
+    --grey: #F5F5F5;
+    --blue: #007BFF;
+    --m: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav {
+    background-color: var(--white);
+    margin-left: 40px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: baseline;
+    position: fixed;
+    height: 100vh;
+    width: 52px;
+    transition: 300ms;
+
+    // border: 2px solid black;
+    padding: 30px 15px;
+    overflow: hidden;
+    will-change: width;
+    img {
+        width: 23px;
+    }
+    >div {
+        position: absolute;
+    }
+}
+.nav:hover{
+    width: 200px;
+
+}
+.select{
+    background-color: #1e1e1e;
+    opacity: 0.1;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    translate: 0 -24%;
+    transition: 300ms;
+    border-radius: 100px;
+}
+.links {
+    font-family: monospace;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+
+    div {
+        cursor: pointer;
+        display: flex;
+        gap: 20px;
+        align-items: center
+    };
+    p {
+        white-space: nowrap;
+    }
+}
+
+.pages {
+    margin-left: 39px;
+    gap: 15px !important;
+    flex-direction: column;
+    position: relative;
+    span {
+        padding: 1px ;
+        background-color: var(--black);
+        height: 100%;
+        position: absolute;
+        left: -30px;
+        border-radius: 2px;
+    }
+}
+.middle-links {
+    bottom: 50%;
+}
+.bottom-links {
+    bottom: 30px;
+}
+
+.main {
+    margin-left: 100px;
+    padding: 20px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body>
+    <div class="nav">
+
+        <span class="select"></span>
+        <div class="logo"><img src="./img/logo.svg"> </div>
+        <div class="middle-links links">
+            <div class="homeLink"><img src="./img/home.svg" alt="">
+                <p>Home</p>
+            </div>
+            <div class="pagesLink"><img src="./img/folder.svg" alt="">
+                <p>Pages</p>
+            </div>
+            <div class="pages">
+                <span></span>
+                <div> <img src="./img/file.svg" alt="">
+                    <p>page 1</p>
+                </div>
+                <div> <img src="./img/file.svg" alt="">
+                    <p>page 2</p>
+                </div>
+                <div> <img src="./img/file.svg" alt="">
+                    <p>page 3</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-links links">
+            <div class="trashLink"><img src="./img/trash.svg" alt="">
+                <p>Trash</p>
+            </div>
+            <div class="settingsLink"><img src="./img/settings.svg" alt="">
+                <p>Settings</p>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="main">
+        <div class="test">
+            <button class="hardlog">Hardcode testin</button>
+        </div>
+        <div class="logininfo"></div>
+        <div class="visits">
+
+        </div>
+        <div class="login">
+            <input type="email" placeholder="email" class="email">
+            <input type="text" placeholder="password" class="password">
+            <button class="loginbtn">Login</button>
+        </div>
+        <div class="register">
+            <input type="email" placeholder="email" class="remail">
+            <input type="text" placeholder="password" class="rpassword">
+            <input type="text" placeholder="name" class="rname">
+            <button class="registerbtn">Register</button>
+        </div>
+        <button class="logout">Logout</button>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pocketbase/0.21.3/pocketbase.umd.js"></script>
+<script type="module" src="./src/main.js"></script>
+<script type="module" src="./src/userfn.js"></script>
+
+</html>
