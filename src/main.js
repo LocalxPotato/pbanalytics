@@ -2,29 +2,17 @@ import PocketBase from "./pocketbase.es.mjs";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 console.log("main.js loaded");
-/*
-async function getIpDetails() {
-  const token = "b54498c78e4bf6";
-  const url = `https://api.ipinfo.io/lite/me?token=${token}`;
 
-  try {
-    // const response = await fetch(url);
-    // const data = await response.json();
-    return {
+const encodeToHex = (str) => {
+  return Array.from(new TextEncoder().encode(str))
+    .map(byte => byte.toString(16).padStart(2, '0'))
+    .join('');
+};
 
-      ip: data.ip,
-      country: data.country,
-      country_code: data.country_code,
-      as_domain: data.as_domain,
-    };
-  } catch (e) {
-    console.error("Fetch failed", e);
-  }
-}
+let userspdf = pb.authStore.model.spdf
 
-*/
-
-//for offline work
+console.log(userspdf);
+//<--------------------send data-------------------->
 
 async function getIpDetails() {
   const token = "b54498c78e4bf6";
@@ -47,41 +35,14 @@ async function getIpDetails() {
     console.error("Fetch failed", e);
   }
 }
-
-const fullURLString = window.location.href;
-const urlObject = new URL(fullURLString);
-const baseURL = urlObject.origin;
-
-
-const encodeToHex = (str) => {
-  return Array.from(new TextEncoder().encode(str))
-    .map(byte => byte.toString(16).padStart(2, '0'))
-    .join('');
-};
-
-const decodeFromHex = (hex) => {
-  const bytes = new Uint8Array(
-    hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16))
-  );
-  return new TextDecoder().decode(bytes);
-};
-
-const testsub = pb.authStore.model.spdf
-console.log(testsub)
-console.log("testing", testsub); 
-
-
-
-
-
-
 async function senddata() {
   const ipData = await getIpDetails(); // Now it's stored in 'ipData'
   // let ipData =
   const response = await pb.send("/api/try", {
     method: "POST",
     body: {
-      from: testsub,
+      for: userspdf,
+      from: window.location.origin,
       ip: ipData.ip,
       url: window.location.href,
       agent: navigator.userAgent,
@@ -92,54 +53,7 @@ async function senddata() {
   });
   // document.querySelector(".test").textContent = JSON.stringify(response);
 }
-
 senddata();
-
-// console.log(new Date().toLocaleString());
-
-// console.log(window.location.href);
-// console.log(navigator);
-
-let clickable = document.querySelectorAll(
-  ".homeLink, .pagesLink, .trashLink, .settingsLink"
-);
-
-clickable.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    selectPosition(e.currentTarget);
-  });
-});
-
-//testing
-
-let visitDiv = document.querySelector(".visits");
-async function loadVisits(cname) {
-  const records = await pb.collection(cname).getList(1, 50, {
-    sort: "-created",
-  });
-  console.log(records);
-  const recorditem = records.items;
-  visitDiv.innerHTML = "";
-  recorditem.forEach((record) => {
-    let recordElem = document.createElement("div");
-    recordElem.classList.add("record");
-    recordElem.innerHTML = `
-      <p><strong>IP:</strong> ${record.ip}</p>
-      <p><strong>Country:</strong> ${record.country} (${
-      record.country_code
-    })</p>
-      <p><strong>AS Domain:</strong> ${record.as_domain}</p>
-      <p><strong>Agent:</strong> ${record.agent}</p>
-      <p><strong>Time:</strong> ${new Date(record.time).toLocaleString()}</p>
-      <hr/>
-    `;
-    visitDiv.appendChild(recordElem);
-  });
-}
-
-loadVisits(testsub);
-
-
 
 
 async function filecreate (e){
@@ -152,7 +66,6 @@ async function filecreate (e){
     
 }
 
-
 async function registerUser(email, password, name) {
   let encodeid = encodeToHex(email);
   try {
@@ -164,6 +77,7 @@ async function registerUser(email, password, name) {
       spdf:encodeid,
     };
     filecreate(encodeid);
+
     const record = await pb.collection("users").create(data);
 
     console.log("User registered successfully:", record);
@@ -173,38 +87,11 @@ async function registerUser(email, password, name) {
     
 
   } catch (e) {
-    return console.log("user logged in ig");
+    return console.log("user loging in failed");
   }
 }
 
-registerUser("skkajsmkg@gmail.com", "testtesttest", "Alok");
-
-
-
-// async function sendTestRequest(event) {
-//   if (event) {
-//         event.preventDefault();
-//         event.stopPropagation();
-//     }
-//     try {
-//   await pb.send("/api/create-file", {
-    
-//     method: "POST",
-//     body: {
-//       filename: "alook.txt",
-//       content: "This is a test content for the file."
-//     },  
-//   }).then(response => {
-//     console.log("File creation response:", response);
-//   }).catch(error => {
-//     console.error("Error creating file:", error);
-//   }
-//   );
-// } catch (err) {
-//     console.log("Error in sendTestRequest:", err);
-
-// }}
-// sendTestRequest();
+// registerUser("klasmkg@gmail.com", "testtesttest", "Alok");
 
 
 
@@ -247,21 +134,11 @@ registerUser("skkajsmkg@gmail.com", "testtesttest", "Alok");
 
 
 
-let homeLink = document.querySelector(".homeLink");
-let pagesLink = document.querySelector(".pagesLink");
-let select = document.querySelector(".select");
-function selectPosition(e) {
-  let rect = e.getBoundingClientRect();
-  console.log(rect);
-  select.style.top = `${rect.top}px`;
-}
-document.addEventListener("DOMContentLoaded", () => {
-  selectPosition(homeLink);
 
-  console.log("DOM fully loaded and parsed");
-  // You can safely access and manipulate DOM elements here
-});
 
-window.addEventListener("resize", () => {
-  console.log("Window resized");
-});
+
+
+
+
+
+

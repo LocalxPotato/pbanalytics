@@ -2,6 +2,19 @@ import PocketBase from "./pocketbase.es.mjs";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 
+
+let authinfo = document.querySelector(".authinfo");
+let authinfobutton = authinfo.querySelector("button");
+let authinfoparagraph = authinfo.querySelector("p");
+authinfobutton.addEventListener("click", async () => {
+  if (pb.authStore.isValid) {
+    authinfoparagraph.innerHTML = `info <br> ${JSON.stringify(pb.authStore.model, null, 2)} <br> <br> ${pb.authStore.model.email}`;
+  } else {
+    authinfoparagraph.textContent = "Not logged in";
+  }
+});
+
+
 let hardlog = document.querySelector(".hardlog");
 let login = document.querySelector(".login");
 let loginbutton = login.querySelector("button");
@@ -32,7 +45,7 @@ loginbutton.addEventListener("click", async ()=>{
 let logininfo = document.querySelector(".logininfo");
 pb.authStore.onChange(() => {
   if (pb.authStore.isValid) {
-    logininfo.textContent = `Logged in as: ${pb.authStore.model.email}`;
+    logininfo.innerHTML = `Logged in as: ${pb.authStore.model.email} `;
   } else {
     logininfo.textContent = "Not logged in";
   }
@@ -46,4 +59,69 @@ logout.addEventListener("click", async () => {
     console.log("Logged out");
 });
 
+let register = document.querySelector(".register")
+let registerbtn = document.querySelector(".registerbtn")
+
+registerbtn.addEventListener("click", ()=>{
+  let email = register.querySelector(".email").value
+  let password = register.querySelector(".password").value
+  let name = register.querySelector(".name").value
+
+  registerUser(email, password, name)
+})
 //testing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let homeLink = document.querySelector(".homeLink");
+let pagesLink = document.querySelector(".pagesLink");
+let select = document.querySelector(".select");
+function selectPosition(e) {
+  let rect = e.getBoundingClientRect();
+  console.log(rect);
+  select.style.top = `${rect.top}px`;
+}
+document.addEventListener("DOMContentLoaded", () => {
+  selectPosition(homeLink);
+
+  console.log("DOM fully loaded and parsed");
+  // You can safely access and manipulate DOM elements here
+});
+
+
+
+let clickable = document.querySelectorAll(
+  ".homeLink, .pagesLink, .trashLink, .settingsLink"
+);
+
+clickable.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    selectPosition(e.currentTarget);
+  });
+});
+
+
+
+
+
+
+
+window.addEventListener("resize", () => {
+  console.log("Window resized");
+});
