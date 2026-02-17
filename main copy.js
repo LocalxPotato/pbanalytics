@@ -1,5 +1,4 @@
 import PocketBase from "./pocketbase.es.mjs";
-
 const pb = new PocketBase("http://127.0.0.1:8090");
 console.log("main.js loaded");
 /*
@@ -25,6 +24,43 @@ async function getIpDetails() {
 */
 
 //for offline work
+
+async function filecreate (e){
+      const response = await pb.send("/api/register", {
+      method: "POST",
+      body: {
+        id: e,
+      },
+    });
+    
+}
+
+async function registerUser(email, password, name) {
+  let encodeid = encodeToHex(email);
+  try {
+    const data = {
+      email: email,
+      password: password,
+      passwordConfirm: password, // Must match the password
+      name: name,
+      spdf:encodeid,
+    };
+    filecreate(encodeid);
+
+    const record = await pb.collection("users").create(data);
+
+    console.log("User registered successfully:", record);
+    console.log(record.id);
+    loginfunction(email, password);
+    return record;
+    
+
+  } catch (e) {
+    return console.log("user loging in failed");
+  }
+}
+
+// registerUser("kalamanickg@gmail.com", "testtesttest", "Alok");
 
 async function getIpDetails() {
   const token = "b54498c78e4bf6";

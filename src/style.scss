@@ -1,98 +1,145 @@
 //all public basic styles and variables
 
-body,p {
-    margin: 0;
+body,
+p {
+  margin: 0;
 }
 body {
-    background-color: var(--white);
-
+  background-color: var(--white);
 }
-:root{
-    --black: #1e1e1e;
-    --white: #FFFFFF;
-    --grey: #F5F5F5;
-    --blue: #007BFF;
-    --m: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+  --black: #1e1e1e;
+  --white: #ebebeb;
+  --wwhite: #fff;
+  --grey: #dadada;
+  --blue: #007bff;
+  --m: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
+h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: var(--m);
+  font-weight: 500;
+}
+a,
+p {
+  font-family: monospace;
+}
 .nav {
-    background-color: var(--white);
-    margin-left: 40px;
+  display: flex;
+  position: fixed;
+  background-color: var(--white);
+  width: 100%;
+  padding: 30px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+  top: 0;
+  img {
+    width: 20px;
+  }
+  .logo {
+    padding: 15px;
+    background-color: #ece1da;
+    border-radius: 50%;
+  }
+  > div {
     display: flex;
-    box-sizing: border-box;
-    align-items: baseline;
-    position: fixed;
-    height: 100vh;
-    width: 52px;
-    transition: 300ms;
-
-    // border: 2px solid black;
-    padding: 30px 15px;
-    overflow: hidden;
-    will-change: width;
-    img {
-        width: 23px;
-    }
-    >div {
-        position: absolute;
-    }
+    gap: 30px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    cursor: pointer;
+  }
 }
-.nav:hover{
-    width: 200px;
-
-}
-.select{
-    background-color: #1e1e1e;
-    opacity: 0.1;
-    height: 50px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    translate: 0 -24%;
-    transition: 300ms;
-    border-radius: 100px;
-}
-.links {
-    font-family: monospace;
-    font-size: 1.3em;
+.main {
+  padding: 0px 30px;
+  margin-top: 130px;
+  .bar {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    
+    justify-content: space-between;
+    align-items: center;
+    .greet {
+        display: flex;
+        font-family: var(--m);
+        gap: 10px;
+    }
 
     div {
-        cursor: pointer;
-        display: flex;
-        gap: 20px;
-        align-items: center
-    };
-    p {
-        white-space: nowrap;
-    }
-}
+      display: flex;
+      gap: 20px;
+      select {
+        border-radius: 10px;
+        padding: 10px;
 
-.pages {
-    margin-left: 39px;
-    gap: 15px !important;
+        background-color: var(--grey);
+        border: none;
+      }
+    }
+    img {
+      width: 20px;
+    }
+  }
+  .maininfo {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    > div {
+      width: 50%;
+    }
+  }
+  .tpageview {
+    background-color: var(--wwhite);
+    box-sizing: border-box;
+    padding: 30px;
+    border-radius: 30px;
+
+    display: flex;
+    gap: 20px;
     flex-direction: column;
-    position: relative;
-    span {
-        padding: 1px ;
-        background-color: var(--black);
-        height: 100%;
-        position: absolute;
-        left: -30px;
-        border-radius: 2px;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        :nth-child(1) {
+            font-size: 2em;
+        }
+        :nth-child(2) {
+          font-family: var(--m);
+        }
+      }
     }
+  }
+  .snd-info {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    > div {
+      background-color: var(--wwhite);
+      box-sizing: border-box;
+      padding: 30px;
+      border-radius: 30px;
+      width: 50%;
+      > div > div {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
 }
-.middle-links {
-    bottom: 50%;
-}
-.bottom-links {
-    bottom: 30px;
-}
+.rightside {
+  background-color: var(--wwhite);
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 30px;
 
-.main {
-    margin-left: 100px;
-    padding: 20px;
+  > div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 }

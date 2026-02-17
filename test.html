@@ -1,15 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background: #f4f7f6;
+        }
 
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+            width: 320px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+            transition: border-color 0.3s;
+            position: relative;
+            z-index: 2; /* Input is always on top to stay clickable */
+        }
+
+        .input-label {
+            position: absolute;
+            left: 14px;
+            top: 12px;
+            color: #888;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            pointer-events: none; /* User clicks "through" the label to the input */
+            background: white;
+            padding: 0 5px;
+        }
+
+        /* 1. When CLICKED (Focus): Move UP and be visible */
+        .input-field:focus-visible + .input-label {
+            top: -20px;
+            color: #2563eb;
+            z-index: -10;
+            opacity: 1;
+        }
+
+        .input-field:not(:placeholder-shown):not(:focus-visible) + .input-label {
+            top: -12px;
+            z-index: -2;
+            opacity: 0; /* Optional: slight fade so it doesn't ghost through the text too harshly */
+        }
+
+        .input-field:focus-visible {
+            border-color: #2563eb;
+        }
+    </style>
 </head>
 <body>
-    
 
-<script type="module" src="./src/main.js"></script>
+    <form>
+        <div class="input-group">
+            <input type="text" class="input-field" placeholder=" " id="user">
+            <label class="input-label" for="user">Username</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" class="input-field" placeholder=" " id="pass">
+            <label class="input-label" for="pass">Password</label>
+        </div>
+    </form>
 
 </body>
 </html>

@@ -1,0 +1,137 @@
+body,
+p {
+  margin: 0;
+}
+body {
+  background-color: var(--white);
+}
+:root {
+  --black: #1e1e1e;
+  --white: #ebebeb;
+  --grey: #d9d9d9;
+  --blue: #007bff;
+  --m: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.main {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.switchmode {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: var(--grey);
+  border-radius: 100px;
+  position: relative;
+  margin-bottom: 20px;
+  align-items: center;
+  border: 4px solid var(--grey);
+  font-family: monospace;
+  cursor: pointer;
+
+  span {
+    background-color: var(--black);
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    border-radius: 100px;
+    left: 0;
+    transition: 300ms;
+  }
+  .active {
+    color: var(--white);
+  }
+  p {
+    transition: 500ms;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.register {
+  font-family: monospace;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  > div {
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  p {
+    position: absolute;
+  font-size: 15px;
+
+
+    z-index: 1;
+    left: 15px;
+      position: absolute;
+  top: 30%;
+  color: #888;
+  font-size: 15px;
+
+  transition: all 0.3s ease;
+  pointer-events: none; /* User clicks "through" the label to the input */
+  padding: 0 5px;
+  }
+  span {
+    cursor: pointer;
+    background-color: var(--black);
+    height: 2px;
+  width: 300px;
+  padding: 0 15px;
+height: 50px;
+  font-size: 15px;
+
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    border-radius: 100px;
+    transition: 300ms;
+  }
+}
+input {
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  background: #d9d9d9;
+  border-radius: 100px;
+  position: relative;
+  transition: 300ms;
+  outline: 2px solid var(--grey);
+  box-shadow: 0 7px 30px rgba(0, 0, 0, 0);
+}
+input:focus-visible {
+  margin: 30px 0 15px 0;
+  box-shadow: 0 7px 30px rgba(0, 0, 0, 0.15);
+
+  outline: 2px solid var(--black);
+  background-color: var(--white);
+}
+input:focus-visible + p {
+  top: -5%;
+  color: var(--black);
+  z-index: 2;
+}
+input:not(:placeholder-shown):not(:focus-visible) + p {
+  top: 0px;
+  z-index: -2;
+}
+.registerbtn:hover {
+ background-color: var(--black);
+ scale: 1.05;
+}
+
