@@ -9,97 +9,143 @@
 </head>
 
 <body>
+    <div class="nd-nav">
+        <div class="logo"><img src="./img/logo.svg"> </div>
+        <div>
+            <div class="usinfo">
+                <div class="pfimg"></div>
+                <div>
+                    <p class="name">Username</p>
+                    <p class="email">demouser@gmail.com</p>
+                </div>
+            </div>
+            <div class="settingsLink"><img src="./img/settings.svg" alt="">
+            </div>
+        </div>
+
+    </div>
     <div class="nav">
 
-        <div class="logo"><img src="./img/logo.svg"> </div>
+        <span class="select"></span>
         <div class="middle-links links">
-            <p>Overview</p>
-            <p>Map</p>
+            <a href="./">
+                <div class="homeLink"><img src="./img/home.svg" alt="">
+                    <p>Home</p>
+                </div>
+            </a>
+            <a href="./pages.html">
+                <div class="pagesLink"><img src="./img/folder.svg" alt="">
+                    <p>Pages</p>
+                </div>
+            </a>
+            <a href="./maps.html">
+                <div class="Maps"><img src="./img/maps.svg" alt="">
+                    <p>Maps</p>
+                </div>
+            </a>
+            <a href="./devices.html">
+                <div class="Devices"><img src="./img/devices.svg" alt="">
+                    <p>Devices</p>
+                </div>
+            </a>
+
+
         </div>
         <div class="bottom-links links">
+            <a href="./trash.html">
+                <div class="trashLink"><img src="./img/trash.svg" alt="">
+                    <p>Trash</p>
+                </div>
+            </a>
 
-            <div class="settingsLink"><img src="./img/settings.svg" alt="">
-
-            </div>
 
         </div>
 
     </div>
-    <div class="main">
-        <div class="bar">
-            <div  class="greet">Hey,<h3>User</h3></div> 
-            <div>
-                <img src="./img/calender.svg" alt="">
-                <select name="timeperiod" class="timeperiod">
-                    <option id="">This week</option>
-                    <option id="">Last week</option>
-                    <option id="">Last 30 days</option>
-                </select>
-            </div>
-        </div>
-        <div class="maininfo">
-            <div class="leftside">
-                <div class="tpageview">
-                    <h3>Total page views</h3>
-                    <div>
-                        <div>
-                            <p class="sun">00</p>
-                            <p class="day">sun</p>
-                        </div>
-                        <div>
-                            <p class="mon">00</p>
-                            <p class="day">mon</p>
-                        </div>
-                        <div>
-                            <p class="tue">00</p>
-                            <p class="day">tue</p>
-                        </div>
-                        <div>
-                            <p class="wed">00</p>
-                            <p class="day">wed</p>
-                        </div>
-                        <div>
-                            <p class="thu">00</p>
-                            <p class="day">thr</p>
-                        </div>
-                        <div>
-                            <p class="fri">00</p>
-                            <p class="day">fri</p>
-                        </div>
-                        <div>
-                            <p class="sat">00</p>
-                            <p class="day">sat</p>
-                        </div>
+    <div class="wrap">
 
-                    </div>
-
+        <div class="main">
+            <div class="bar">
+                <div class="greet">Hey,<h3>User</h3>
                 </div>
-                <div class="snd-info">
-                    <div class="countries">
-                        <h3>Countries</h3>
-                        <div>
-
-                        </div>
-                    </div>
-                    <div class="devices">
-                        <h3>Devices</h3>
+                <div>
+                    <img src="./img/calender.svg" alt="">
+                    <select name="timeperiod" class="timeperiod">
+                        <option id="">This week</option>
+                        <option id="">Last week</option>
+                        <option id="">Last 30 days</option>
+                    </select>
+                </div>
+            </div>
+            <div class="maininfo">
+                <div class="leftside">
+                    <div class="tpageview">
+                        <h3>Total page views</h3>
                         <div>
                             <div>
-                                <p>to be added </p>
-                                <p>00</p>
+                                <p class="sun">00</p>
+                                <p class="day">sun</p>
+                            </div>
+                            <div>
+                                <p class="mon">00</p>
+                                <p class="day">mon</p>
+                            </div>
+                            <div>
+                                <p class="tue">00</p>
+                                <p class="day">tue</p>
+                            </div>
+                            <div>
+                                <p class="wed">00</p>
+                                <p class="day">wed</p>
+                            </div>
+                            <div>
+                                <p class="thu">00</p>
+                                <p class="day">thr</p>
+                            </div>
+                            <div>
+                                <p class="fri">00</p>
+                                <p class="day">fri</p>
+                            </div>
+                            <div>
+                                <p class="sat">00</p>
+                                <p class="day">sat</p>
                             </div>
 
                         </div>
+
+                    </div>
+                    <div
+                        >
+                        <canvas id="myChart" width="600" height="400" ></canvas>
+                    </div>
+                    <div class="snd-info">
+                        <div class="countries">
+                            <h3>Countries</h3>
+                            <div>
+
+                            </div>
+                        </div>
+                        <div class="devices">
+                            <h3>Devices</h3>
+                            <div>
+                                <div>
+                                    <p>to be added </p>
+                                    <p>00</p>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="rightside">
-                <h3>Visits</h3>
+                <div class="rightside">
+                    <h3>Visits</h3>
+
+                </div>
 
             </div>
-
         </div>
     </div>
+
 </body>
 <!-- <script src="./src/pocketbase.umd.js"></script> -->
 <script type="module" src="./src/main.js"></script>

@@ -29,13 +29,14 @@ const pb = new PocketBase("http://127.0.0.1:8090");
 
 
 
-// let loginfunction = async (email, password)=>{
+let loginfunction = async (email, password)=>{
 
-//     console.log(email, password);
-//     await pb
-//     .collection("users")
-//     .authWithPassword(email, password);
-// }
+    console.log(email, password);
+    await pb
+    .collection("users")
+    .authWithPassword(email, password);
+}
+// loginfunction("skkajsmkg@gmail.com", "testtesttest")
 // loginbutton.addEventListener("click", async ()=>{
 //         let email = login.querySelector(".email").value;
 //     let password = login.querySelector(".password").value;
@@ -73,40 +74,59 @@ const pb = new PocketBase("http://127.0.0.1:8090");
 
 
 
+let homeLink = document.querySelector(".homeLink");
+let select = document.querySelector(".select");
+function selectPosition(e) {
+  let rect = e.getBoundingClientRect();
+  console.log(rect);
+  select.style.top = `${rect.top}px`;
+}
+document.addEventListener("DOMContentLoaded", () => {
+  selectPosition(homeLink);
+
+  console.log("DOM fully loaded and parsed");
+  // You can safely access and manipulate DOM elements here
+});
+
+let route = (event) => {
+  let href = event.currentTarget.getAttribute("href") || "#";
+  event.preventDefault();
+window.history.pushState({}, "", href);
+  console.log("Navigated to:", href);
+}
+window.route = route
 
 
-// let homeLink = document.querySelector(".homeLink");
-// let pagesLink = document.querySelector(".pagesLink");
-// let select = document.querySelector(".select");
-// function selectPosition(e) {
-//   let rect = e.getBoundingClientRect();
-//   console.log(rect);
-//   select.style.top = `${rect.top}px`;
-// }
-// document.addEventListener("DOMContentLoaded", () => {
-//   selectPosition(homeLink);
+let clickable = document.querySelectorAll(
+    ".links>a"
+);
 
-//   console.log("DOM fully loaded and parsed");
-//   // You can safely access and manipulate DOM elements here
-// });
+clickable.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    route(e)
 
+    selectPosition(e.currentTarget);
+  });
+});
 
+let userinfo = document.querySelector(".usinfo");
 
-// let clickable = document.querySelectorAll(
-//   ".homeLink, .pagesLink, .trashLink, .settingsLink"
-// );
-
-// clickable.forEach((item) => {
-//   item.addEventListener("click", (e) => {
-//     selectPosition(e.currentTarget);
-//   });
-// });
+function updateUserInfo() {
+  if (pb.authStore.isValid) {
+    console.log("User logged in:", pb.authStore.model.email);
+    userinfo.querySelector(".name").textContent = pb.authStore.model.name;
+    userinfo.querySelector(".email").textContent = pb.authStore.model.email;
+  } else {
+    console.log("User not logged in");
+  }
+}
+updateUserInfo()
 
 
 
-// window.addEventListener("resize", () => {
-//   console.log("Window resized");
-// });
+window.addEventListener("resize", () => {
+  console.log("Window resized");
+});
 
 
 

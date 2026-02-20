@@ -1,79 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            background: #f4f7f6;
+<html>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f9f9f9; font-family: sans-serif;">
+  <div style="position: relative; background: white; padding: 20px; border-radius: 16px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+    <canvas id="myChart" width="800" height="400" style="width: 100%; "></canvas>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('myChart');
+    const ctx = canvas.getContext('2d');
+
+    const maxData = 500;
+    const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+    const dataSolid = [200, 150, 220, 280, 280, 410, 300]; 
+    const dataDashed = [110, 180, 110, 160, 350, 350, 450];
+    const padding = { top: 70, right: 50, bottom: 60, left: 60 };
+    
+    let drawProgress = 0; 
+    let targetIndex = 0;
+    let easedIndex = 0;
+    let isHovering = false;
+    let opacity = 0;
+
+    const chartWidth = canvas.width - padding.left - padding.right;
+    const chartHeight = canvas.height - padding.top - padding.bottom;
+
+    const getX = (i) => padding.left + (i * (chartWidth / (dataSolid.length - 1)));
+    const getY = (val) => (canvas.height - padding.bottom) - (val * (chartHeight / maxData) * drawProgress);
+
+    const patternCanvas = document.createElement('canvas');
+    patternCanvas.width = 10; patternCanvas.height = 10;
+    const pCtx = patternCanvas.getContext('2d');
+    pCtx.strokeStyle = '#f0f0f0';
+    pCtx.lineWidth = 1;
+    pCtx.beginPath(); pCtx.moveTo(0, 10); pCtx.lineTo(10, 0); pCtx.stroke();
+    const pattern = ctx.createPattern(patternCanvas, 'repeat');
+
+    function drawSteppedPath(data) {
+      for (let i = 0; i < data.length; i++) {
+        const x = getX(i), y = getY(data[i]);
+        if (i === 0) ctx.moveTo(x, y);
+        else {
+          const prevX = getX(i - 1), prevY = getY(data[i - 1]), midX = (prevX + x) / 2;
+          ctx.bezierCurveTo(midX, prevY, midX, y, x, y);
         }
+      }
+    }
 
-        .input-group {
-            position: relative;
-            margin-bottom: 25px;
-            width: 320px;
-        }
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-            background: transparent;
-            transition: border-color 0.3s;
-            position: relative;
-            z-index: 2; /* Input is always on top to stay clickable */
-        }
+      if (drawProgress < 1) drawProgress += (1 - drawProgress) * 0.08;
+      if (drawProgress > 0.999) drawProgress = 1;
 
-        .input-label {
-            position: absolute;
-            left: 14px;
-            top: 12px;
-            color: #888;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            pointer-events: none; /* User clicks "through" the label to the input */
-            background: white;
-            padding: 0 5px;
-        }
+      // 1. Grid & Y Axis
+      ctx.setLineDash([]);
+      ctx.strokeStyle = '#f5f5f5';
+      ctx.fillStyle = '#bbb';
+      ctx.textAlign = 'right';
+      for (let i = 0; i <= 4; i++) {
+        const val = Math.round(i * (maxData / 4)), y = (canvas.height - padding.bottom) - (val * (chartHeight / maxData));
+        ctx.beginPath(); ctx.moveTo(padding.left, y); ctx.lineTo(canvas.width - padding.right, y); ctx.stroke();
+        ctx.fillText(val, padding.left - 15, y + 4);
+      }
 
-        /* 1. When CLICKED (Focus): Move UP and be visible */
-        .input-field:focus-visible + .input-label {
-            top: -20px;
-            color: #2563eb;
-            z-index: -10;
-            opacity: 1;
-        }
+      // 2. Area Fill
+      ctx.beginPath(); 
+      ctx.moveTo(getX(0), (canvas.height - padding.bottom)); 
+      drawSteppedPath(dataSolid);
+      ctx.lineTo(getX(dataSolid.length - 1), (canvas.height - padding.bottom)); 
+      ctx.fillStyle = pattern;
+      ctx.fill();
 
-        .input-field:not(:placeholder-shown):not(:focus-visible) + .input-label {
-            top: -12px;
-            z-index: -2;
-            opacity: 0; /* Optional: slight fade so it doesn't ghost through the text too harshly */
-        }
+      // 3. Lines
+      ctx.beginPath(); ctx.strokeStyle = '#999'; ctx.lineWidth = 2; drawSteppedPath(dataSolid); ctx.stroke();
+      ctx.beginPath(); ctx.setLineDash([5, 5]); ctx.strokeStyle = '#333'; drawSteppedPath(dataDashed); ctx.stroke();
 
-        .input-field:focus-visible {
-            border-color: #2563eb;
-        }
-    </style>
-</head>
-<body>
+      // 4. X-Axis Labels (NEW)
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#999';
+      ctx.textAlign = 'center';
+      labels.forEach((label, i) => {
+        ctx.fillText(label, getX(i), canvas.height - padding.bottom + 25);
+      });
 
-    <form>
-        <div class="input-group">
-            <input type="text" class="input-field" placeholder=" " id="user">
-            <label class="input-label" for="user">Username</label>
-        </div>
+      // 5. Interaction logic
+      easedIndex += (targetIndex - easedIndex) * 0.15;
+      opacity += (isHovering ? 1 - opacity : 0 - opacity) * 0.15;
 
-        <div class="input-group">
-            <input type="password" class="input-field" placeholder=" " id="pass">
-            <label class="input-label" for="pass">Password</label>
-        </div>
-    </form>
+      if (opacity > 0.01) {
+        ctx.globalAlpha = opacity;
+        const activeX = getX(easedIndex);
+        const snapIdx = Math.round(easedIndex);
 
+        ctx.beginPath(); ctx.setLineDash([4, 4]); ctx.strokeStyle = '#aaa';
+        ctx.moveTo(activeX, padding.top); ctx.lineTo(activeX, canvas.height - padding.bottom); ctx.stroke();
+
+        const tipX = activeX + 15 > canvas.width - 120 ? activeX - 135 : activeX + 15;
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#111';
+        ctx.beginPath(); ctx.roundRect(tipX, 100, 120, 60, 8); ctx.fill();
+        
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'left';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.fillText(labels[snapIdx], tipX + 12, 120);
+        
+        ctx.font = '11px sans-serif';
+        ctx.fillStyle = '#aaa';
+        const curSolid = Math.round(dataSolid[snapIdx] * drawProgress);
+        const curDash = Math.round(dataDashed[snapIdx] * drawProgress);
+        ctx.fillText(`Solid: ${curSolid}`, tipX + 12, 137);
+        ctx.fillText(`Dash: ${curDash}`, tipX + 12, 152);
+
+        ctx.fillStyle = '#444';
+        ctx.beginPath(); ctx.arc(activeX, getY(dataSolid[snapIdx]), 5, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(activeX, getY(dataDashed[snapIdx]), 5, 0, Math.PI*2); ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+// Replace your current mouse logic with this:
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  
+  // We calculate scales inside the listener so it stays accurate 
+  // even if the CSS size changes after the page loads.
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+
+  // Apply the scale to the mouse coordinates
+  const mouseX = (e.clientX - rect.left) * scaleX;
+  const mouseY = (e.clientY - rect.top) * scaleY;
+
+  if (mouseX >= padding.left && mouseX <= canvas.width - padding.right) {
+    isHovering = true;
+    targetIndex = (mouseX - padding.left) / (chartWidth / (dataSolid.length - 1));
+  } else {
+    isHovering = false;
+  }
+});
+
+canvas.addEventListener('mouseleave', () => isHovering = false);
+    canvas.addEventListener('mouseleave', () => isHovering = false);
+
+    animate();
+  </script>
 </body>
 </html>
