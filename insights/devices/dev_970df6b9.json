@@ -1,0 +1,442 @@
+{
+  "device": {
+    "id": "dev_970df6b9",
+    "name": "OnePlus CPH2719",
+    "manufacturer": "OnePlus",
+    "model": "CPH2719",
+    "androidVersion": "Android 15 (SDK 35)",
+    "lastSyncedAt": 1794326474651,
+    "lastSyncedIso": "2026-11-10T22:01:14Z",
+    "lastSyncedFormatted": "Nov 10, 2026 22:01"
+  },
+  "widgets": {
+    "totalCount": 1,
+    "tapeDeckCount": 0,
+    "coverFlowCount": 1
+  },
+  "pinnedShortcuts": [
+    {
+      "songId": 18,
+      "title": "Heat Waves",
+      "artist": "Glass Animals",
+      "pinnedAt": 1794326474686,
+      "pinnedAtFormatted": "Nov 10, 2026 22:01",
+      "inLibrary": true
+    },
+    {
+      "songId": 15,
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "pinnedAt": 1794326474686,
+      "pinnedAtFormatted": "Nov 10, 2026 22:01",
+      "inLibrary": true
+    }
+  ],
+  "stats": {
+    "todayMinutes": 2,
+    "weekMinutes": 2,
+    "monthMinutes": 2,
+    "totalMinutes": 2,
+    "totalPlays": 19,
+    "totalSkips": 0,
+    "earlySkips": 0,
+    "songCount": 4,
+    "widgetCount": 1,
+    "shortcutCount": 2
+  },
+  "routes": [
+    {
+      "route": "SPEAKER",
+      "durationMs": 131939,
+      "playCount": 63
+    }
+  ],
+  "contexts": [
+    {
+      "context": "EVENING",
+      "count": 63
+    }
+  ],
+  "library": [
+    {
+      "id": 18,
+      "title": "Heat Waves",
+      "artist": "Glass Animals",
+      "album": "Dreamland",
+      "durationMs": 182047,
+      "durationFormatted": "3:02",
+      "addedAt": 1794314551761,
+      "addedAtFormatted": "Nov 10, 2026 18:42",
+      "audioUrl": "https://raw.githubusercontent.com/LocalxPotato/scanit-music/main/songs/heat_waves/audio.mp3",
+      "isFavorite": true
+    },
+    {
+      "id": 17,
+      "title": "Die For You",
+      "artist": "The Weeknd",
+      "album": "Starboy",
+      "durationMs": 182047,
+      "durationFormatted": "3:02",
+      "addedAt": 1794314510164,
+      "addedAtFormatted": "Nov 10, 2026 18:41",
+      "audioUrl": "https://raw.githubusercontent.com/LocalxPotato/scanit-music/main/songs/die_for_you/audio.mp3",
+      "isFavorite": false
+    },
+    {
+      "id": 16,
+      "title": "Starboy",
+      "artist": "The Weeknd ft. Daft Punk",
+      "album": "Starboy",
+      "durationMs": 372715,
+      "durationFormatted": "6:12",
+      "addedAt": 1794313707515,
+      "addedAtFormatted": "Nov 10, 2026 18:28",
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "isFavorite": false
+    },
+    {
+      "id": 15,
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "album": "After Hours",
+      "durationMs": 182047,
+      "durationFormatted": "3:02",
+      "addedAt": 1794313658213,
+      "addedAtFormatted": "Nov 10, 2026 18:27",
+      "audioUrl": "https://tinyurl.com/28owby96",
+      "isFavorite": false
+    }
+  ],
+  "recentPlayback": [
+    {
+      "id": 63,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 3789,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324961886,
+      "timestampFormatted": "Nov 10, 2026 21:36"
+    },
+    {
+      "id": 62,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "RESUME",
+      "listenedDurationMs": 2532,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324960629,
+      "timestampFormatted": "Nov 10, 2026 21:36"
+    },
+    {
+      "id": 61,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 2532,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324957886,
+      "timestampFormatted": "Nov 10, 2026 21:35"
+    },
+    {
+      "id": 60,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "RESUME",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324955354,
+      "timestampFormatted": "Nov 10, 2026 21:35"
+    },
+    {
+      "id": 59,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324955210,
+      "timestampFormatted": "Nov 10, 2026 21:35"
+    },
+    {
+      "id": 58,
+      "songTitle": "Die For You",
+      "songArtist": "The Weeknd",
+      "eventType": "MID_SONG_CLOSE",
+      "listenedDurationMs": 13264,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324951180,
+      "timestampFormatted": "Nov 10, 2026 21:35"
+    },
+    {
+      "id": 57,
+      "songTitle": "Die For You",
+      "songArtist": "The Weeknd",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 13264,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324897831,
+      "timestampFormatted": "Nov 10, 2026 21:34"
+    },
+    {
+      "id": 56,
+      "songTitle": "Die For You",
+      "songArtist": "The Weeknd",
+      "eventType": "RESUME",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324884567,
+      "timestampFormatted": "Nov 10, 2026 21:34"
+    },
+    {
+      "id": 55,
+      "songTitle": "Die For You",
+      "songArtist": "The Weeknd",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324884312,
+      "timestampFormatted": "Nov 10, 2026 21:34"
+    },
+    {
+      "id": 54,
+      "songTitle": "Heat Waves",
+      "songArtist": "Glass Animals",
+      "eventType": "RESUME",
+      "listenedDurationMs": 13326,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324467749,
+      "timestampFormatted": "Nov 10, 2026 21:27"
+    },
+    {
+      "id": 53,
+      "songTitle": "Heat Waves",
+      "songArtist": "Glass Animals",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 13326,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324467710,
+      "timestampFormatted": "Nov 10, 2026 21:27"
+    },
+    {
+      "id": 52,
+      "songTitle": "Heat Waves",
+      "songArtist": "Glass Animals",
+      "eventType": "RESUME",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324454384,
+      "timestampFormatted": "Nov 10, 2026 21:27"
+    },
+    {
+      "id": 51,
+      "songTitle": "Heat Waves",
+      "songArtist": "Glass Animals",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324454272,
+      "timestampFormatted": "Nov 10, 2026 21:27"
+    },
+    {
+      "id": 50,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 29045,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324307181,
+      "timestampFormatted": "Nov 10, 2026 21:25"
+    },
+    {
+      "id": 49,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "RESUME",
+      "listenedDurationMs": 2,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324278138,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 48,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 2,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324278096,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 47,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324278094,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 46,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "RESUME",
+      "listenedDurationMs": 3,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324277862,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 44,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 3,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324277810,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 45,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324277807,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 43,
+      "songTitle": "Die For You",
+      "songArtist": "The Weeknd",
+      "eventType": "RESUME",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324277064,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 42,
+      "songTitle": "Die For You",
+      "songArtist": "The Weeknd",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324276973,
+      "timestampFormatted": "Nov 10, 2026 21:24"
+    },
+    {
+      "id": 41,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 5103,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324214545,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    },
+    {
+      "id": 40,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "RESUME",
+      "listenedDurationMs": 1,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324209443,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    },
+    {
+      "id": 39,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 1,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324209392,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    },
+    {
+      "id": 38,
+      "songTitle": "Starboy",
+      "songArtist": "The Weeknd ft. Daft Punk",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324209391,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    },
+    {
+      "id": 37,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "RESUME",
+      "listenedDurationMs": 4,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324209026,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    },
+    {
+      "id": 36,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "PAUSE",
+      "listenedDurationMs": 4,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324208979,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    },
+    {
+      "id": 35,
+      "songTitle": "Blinding Lights",
+      "songArtist": "The Weeknd",
+      "eventType": "START",
+      "listenedDurationMs": 0,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324208975,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    },
+    {
+      "id": 34,
+      "songTitle": "Heat Waves",
+      "songArtist": "Glass Animals",
+      "eventType": "RESUME",
+      "listenedDurationMs": 1,
+      "audioOutputRoute": "SPEAKER",
+      "timeOfDayContext": "EVENING",
+      "timestamp": 1794324208437,
+      "timestampFormatted": "Nov 10, 2026 21:23"
+    }
+  ]
+}
